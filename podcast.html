@@ -5,22 +5,20 @@ title: Research Cast Podcast
 <div class="podcast-hub">
     <header class="podcast-header">
         <div class="podcast-branding">
-            <img src="{{ site.podcast.image }}" alt="Research Cast Cover" class="podcast-cover">
+            <div class="podcast-cover-placeholder">🎙️</div>
             <div class="podcast-info">
-                <h1>🎙️ {{ site.podcast.title }}</h1>
-                <p class="podcast-subtitle">{{ site.podcast.subtitle }}</p>
+                <h1>🎙️ Research Cast</h1>
+                <p class="podcast-subtitle">Revealing the truth about humanity through rigorous research</p>
                 <div class="podcast-meta">
-                    <span class="author">By {{ site.podcast.author }}</span>
+                    <span class="author">By TheTruth</span>
                     <span class="separator">•</span>
-                    <span class="category">{{ site.podcast.category }}</span>
+                    <span class="category">History</span>
                 </div>
             </div>
         </div>
         
         <div class="subscription-links">
-            <a href="{{ '/feed.xml' | relative_url }}" class="subscribe-btn rss">
-                📡 RSS Feed
-            </a>
+            <a href="{{ '/feed.xml' | relative_url }}" class="subscribe-btn rss">📡 RSS Feed</a>
             <a href="#" class="subscribe-btn apple">🎧 Apple Podcasts</a>
             <a href="#" class="subscribe-btn spotify">🎵 Spotify</a>
             <a href="#" class="subscribe-btn google">🎙️ Google Podcasts</a>
@@ -29,7 +27,8 @@ title: Research Cast Podcast
     
     <section class="podcast-description">
         <h2>About Research Cast</h2>
-        <p>{{ site.podcast.description }}</p>
+        <p>Deep dives into humanity's hidden history, ancient civilizations, and suppressed truths. Seasonal format with Chronicle Annals dramatizations revealing the Original Memory Stream of human consciousness.</p>
+        
         <div class="format-info">
             <h3>🗓️ Release Schedule</h3>
             <ul>
@@ -37,6 +36,7 @@ title: Research Cast Podcast
                 <li><strong>Full Episodes:</strong> 30-60 minutes (2 per month)</li>
                 <li><strong>Micro Episodes:</strong> 10-15 minutes (1 per month)</li>
                 <li><strong>Chronicle Annals:</strong> Dramatized historical reconstructions</li>
+                <li><strong>Truth Institute:</strong> Training segments for truth-keepers</li>
             </ul>
         </div>
     </section>
@@ -44,62 +44,38 @@ title: Research Cast Podcast
     <section class="episodes-grid">
         <h2>Latest Episodes</h2>
         <div class="episodes-container">
-            {% assign sorted_episodes = site.episodes | sort: 'date' | reverse %}
-            {% for episode in sorted_episodes %}
-            <article class="episode-card">
+            <article class="episode-card coming-soon">
                 <div class="episode-header">
-                    <h3><a href="{{ episode.url | relative_url }}">{{ episode.title }}</a></h3>
+                    <h3>Season 1 Coming Soon</h3>
                     <div class="episode-meta">
-                        <span class="date">{{ episode.date | date: "%B %d, %Y" }}</span>
-                        {% if episode.duration %}
-                        <span class="duration">{{ episode.duration }}</span>
-                        {% endif %}
-                        {% if episode.episode_type %}
-                        <span class="type {{ episode.episode_type }}">{{ episode.episode_type | capitalize }}</span>
-                        {% endif %}
+                        <span class="date">Q3 2025</span>
+                        <span class="type full">Premiere</span>
                     </div>
                 </div>
                 
-                {% if episode.audio_url %}
-                <div class="audio-player">
-                    <audio controls preload="none">
-                        <source src="{{ episode.audio_url }}" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                {% endif %}
-                
                 <div class="episode-content">
-                    <p>{{ episode.content | strip_html | truncatewords: 30 }}</p>
-                    <a href="{{ episode.url | relative_url }}" class="read-more">Read Full Show Notes →</a>
+                    <p>The inaugural season of Research Cast will launch with our foundational episodes exploring the Chronicle Annals and revealing humanity's suppressed history through sovereign research methods.</p>
                 </div>
                 
-                {% if episode.tags %}
                 <div class="episode-tags">
-                    {% for tag in episode.tags %}
-                    <span class="tag">{{ tag }}</span>
-                    {% endfor %}
+                    <span class="tag">chronicle-annals</span>
+                    <span class="tag">ancient-history</span>
+                    <span class="tag">truth-revelation</span>
                 </div>
-                {% endif %}
             </article>
-            {% endfor %}
         </div>
     </section>
     
     <section class="podcast-stats">
         <div class="stats-grid">
             <div class="stat">
-                <h3>{{ site.episodes.size }}</h3>
-                <p>Episodes Published</p>
+                <h3>Season 1</h3>
+                <p>In Production</p>
             </div>
             <div class="stat">
-                <h3>{{ site.podcast.category }}</h3>
+                <h3>History</h3>
                 <p>Primary Category</p>
             </div>
             <div class="stat">
                 <h3>Sovereign</h3>
-                <p>Distribution Model</p>
-            </div>
-        </div>
-    </section>
-</div>
+                <p
