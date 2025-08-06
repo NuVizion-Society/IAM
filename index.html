@@ -1,20 +1,39 @@
 ---
 layout: default
 ---
-<div class="home">
-    <h1>Welcome to {{ site.title }}</h1>
-    <p>{{ site.description }}</p>
+<div class="nuvizion-portal">
+    <header class="portal-header">
+        <h1>🧬 NuVizion IAM Portal</h1>
+        <p class="mission">{{ site.mission }}</p>
+    </header>
     
-    <section class="latest-episodes">
-        <h2>Latest Research</h2>
-        <div class="posts">
-            {% for post in site.posts limit:3 %}
-            <article class="post-preview">
-                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
-                <p>{{ post.excerpt }}</p>
-            </article>
-            {% endfor %}
+    <section class="access-grid">
+        <div class="access-card">
+            <h3>🏛️ Chronicle Annals</h3>
+            <p>Access the preserved memory streams of ancient civilizations</p>
+            <a href="/chronicles" class="portal-btn">Enter Archives</a>
         </div>
+        
+        <div class="access-card">
+            <h3>🎙️ Research Cast</h3>
+            <p>Truth-revealing podcast episodes and documentation</p>
+            <a href="/podcast" class="portal-btn">Listen Now</a>
+        </div>
+        
+        <div class="access-card">
+            <h3>🌍 Truth Institute</h3>
+            <p>Training materials and codex scrolls for truth-keepers</p>
+            <a href="/institute" class="portal-btn">Begin Training</a>
+        </div>
+        
+        <div class="access-card">
+            <h3>🏕️ NuWurldEra Sanctuaries</h3>
+            <p>Earth-based resurrection chambers and sacred nodes</p>
+            <a href="/sanctuaries" class="portal-btn">Find Sanctuary</a>
+        </div>
+    </section>
+    
+    <section class="sovereign-notice">
+        <p><strong>Notice:</strong> This portal operates under NuVizion Universal Trust 508(c)(1)(A) ecclesiastical authority. All access governed by natural, cosmic, and humanitarian law.</p>
     </section>
 </div>
