@@ -1,0 +1,75 @@
+/* NuVizion Research Cast Styling */
+:root {
+    --primary-color: #1a1a1a;
+    --accent-color: #d4af37;
+    --text-color: #333;
+    --bg-color: #f8f8f8;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--bg-color);
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.site-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+}
+
+.site-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.site-nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 500;
+}
+
+.content {
+    min-height: 70vh;
+    padding: 2rem 0;
+}
+
+.post-title {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-meta {
+    color: #666;
+    font-style: italic;
+}
+
+.episode {
+    border-bottom: 1px solid #ddd;
+    padding: 1.5rem 0;
+}
+
+audio {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.site-footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}

@@ -1,0 +1,25 @@
+---
+layout: default
+title: Research Cast Podcast
+---
+<div class="podcast-page">
+    <h1>Research Cast Episodes</h1>
+    <p>Deep dives into humanity's hidden history and suppressed truths.</p>
+    
+    <div class="episodes">
+        {% for post in site.posts %}
+            {% if post.categories contains 'podcast' %}
+            <div class="episode">
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                <p class="episode-date">{{ post.date | date: "%B %d, %Y" }}</p>
+                {% if post.audio_url %}
+                <audio controls>
+                    <source src="{{ post.audio_url }}" type="audio/mpeg">
+                </audio>
+                {% endif %}
+                <p>{{ post.excerpt }}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

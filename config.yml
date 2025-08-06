@@ -1,0 +1,31 @@
+title: Research Cast
+description: Revealing the truth about humanity through rigorous research
+url: "https://yourusername.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Collections for your content
+collections:
+  chronicles:
+    output: true
+    permalink: /:collection/:name/
+
+# Navigation
+header_pages:
+  - about.md
+  - podcast.html
+  - chronicles.html
+
+# Social links
+social:
+  - platform: twitter
+    url: https://twitter.com/yourhandle
+  - platform: youtube
+    url: https://youtube.com/yourchannel
