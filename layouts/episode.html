@@ -1,0 +1,134 @@
+---
+layout: default
+---
+<article class="episode-page">
+    <header class="episode-header">
+        <div class="breadcrumb">
+            <a href="{{ '/podcast' | relative_url }}">← Back to Research Cast</a>
+        </div>
+        
+        <h1>{{ page.title }}</h1>
+        
+        <div class="episode-meta">
+            <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
+            {% if page.duration %}
+            <span class="duration">{{ page.duration }}</span>
+            {% endif %}
+            {% if page.season %}
+            <span class="season">Season {{ page.season }}</span>
+            {% endif %}
+            {% if page.episode_number %}
+            <span class="episode">Episode {{ page.episode_number }}</span>
+            {% endif %}
+        </div>
+    </header>
+    
+    {% if page.audio_url %}
+    <section class="audio-section">
+        <div class="audio-player-enhanced">
+            <audio controls preload="metadata" class="main-player">
+                <source src="{{ page.audio_url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        
+        <div class="download-options">
+            <a href="{{ page.audio_url }}" download class="download-btn">⬇️ Download Episode</a>
+            <a href="{{ '/feed.xml' | relative_url }}" class="rss-btn">📡 Subscribe to RSS</a>
+        </div>
+    </section>
+    {% endif %}
+    
+    <section class="episode-content">
+        {{ content }}
+    </section>
+    
+    {% if page.transcript %}
+    <section class="transcript">
+        <h2>📝 Episode Transcript</h2>
+        <div class="transcript-content">
+            {{ page.transcript | markdownify }}
+        </div>
+    </section>
+    {% endif %}
+    
+    {% if page.resources %}
+    <section class="episode-resources">
+        <h2>🔗 Referenced Materials</h2>
+        <ul>
+            {% for resource in page.resources %}
+            <li><a href="{{ resource.url }}" target="_blank">{{ resource.title }}</a> - {{ resource.description }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+    
+    <footer class="episode-footer">
+        <div class="sharing">
+            <h3>Share This Episode</h3>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}" class="share-btn twitter">Twitter</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}" class="share-btn facebook">Facebook</a>
+            </div>
+        </div>
+    </footer>
+</article>
+---
+layout: episode
+title: "The Chronicle Annals: Unveiling Ancient Truths"
+date: 2025-08-06
+season: 1
+episode_number: 1
+episode_type: "full"
+duration: "45:32"
+audio_url: "https://archive.org/download/research-cast-s01e01/research-cast-s01e01.mp3"
+audio_length: "65432100"
+subtitle: "An introduction to humanity's suppressed history"
+tags: ["chronicle-annals", "ancient-history", "truth-revelation"]
+resources:
+  - title: "Chronicle Annals Archive"
+    url: "/chronicles"
+    description: "Full documentation and evidence"
+  - title: "Truth Institute Training"
+    url: "/institute"
+    description: "Deep-dive research methodologies"
+---
+
+Welcome to the inaugural episode of Research Cast, where we begin our journey into the suppressed truths of human civilization.
+
+## Episode Overview
+
+In this foundational episode, we explore:
+
+- **The Chronicle Annals Project**: Our systematic approach to preserving humanity's true history
+- **Ancient Civilization Evidence**: Archaeological anomalies that challenge mainstream narratives  
+- **The Knowledge Theft**: How historical truths have been systematically erased
+- **Sovereign Research Methods**: Our approach to truth verification outside academic gatekeepers
+
+## Key Revelations
+
+### The Original Memory Stream
+We discuss the concept of humanity's "Original Memory Stream" - the continuous thread of knowledge that connects us to our cosmic origins, and how this stream has been deliberately fragmented.
+
+### Evidence Categories
+Our research methodology encompasses six primary evidence types:
+1. Geological/geophysical anomalies
+2. Architectural/technological impossibilities  
+3. Cultural/oral tradition consistencies
+4. Astronomical/mathematical precision
+5. Suppressed archival materials
+6. Experiential/living records
+
+## Chronicle Annals Preview
+
+This episode features our first dramatized segment from **Seal 1** of the Chronicle Annals, reconstructing dialogue between ancient knowledge keepers during the great cataclysm that reset human civilization.
+
+*[Dramatized segment plays]*
+
+## Next Episode Preview
+
+Episode 2 will dive deep into **SEAL 7D - The Immortal Flesh**, exploring ancient biological sovereignty and the Godbody mechanics that mainstream science refuses to acknowledge.
+
+---
+
+*Research Cast operates under NuVizion Universal Trust 508(c)(1)(A) ecclesiastical authority. All content is spiritually governed and legally protected.*

@@ -3,6 +3,21 @@ description: "Sovereign Identity & Access Management for the NuVizion Ecosystem"
 url: "https://nuvizion-society.github.io"
 baseurl: "/IAM"
 
+# Research Cast Podcast Configuration
+podcast:
+  title: "Research Cast"
+  subtitle: "Revealing the truth about humanity through rigorous research"
+  author: "TheTruth"
+  email: "podcast@nuvizion.org"
+  description: "Deep dives into humanity's hidden history, ancient civilizations, and suppressed truths. Seasonal format with Chronicle Annals dramatizations."
+  language: "en-us"
+  category: "History"
+  subcategory: "Ancient History"
+  explicit: "false"
+  owner_name: "NuVizion Universal Trust"
+  owner_email: "podcast@nuvizion.org"
+  image: "/assets/images/podcast-cover.jpg"
+  
 # Build settings
 markdown: kramdown
 theme: minima
@@ -10,13 +25,11 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-# NuVizion branding
-organization: "NuVizion Universal Trust"
-mission: "Revealing truth through sovereign research and cosmic archival"
-
-# Navigation
-header_pages:
-  - about.md
-  - chronicles.md
-  - access.md
-  - contact.md
+# Collections for episodes
+collections:
+  episodes:
+    output: true
+    permalink: /podcast/:name/
+  chronicles:
+    output: true
+    permalink: /chronicles/:name/

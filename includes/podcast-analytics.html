@@ -1,0 +1,54 @@
+<!-- Podcast Analytics Tracking -->
+<script>
+// Track episode plays
+document.addEventListener('DOMContentLoaded', function() {
+    const audioPlayers = document.querySelectorAll('audio');
+    
+    audioPlayers.forEach(function(player, index) {
+        const episodeTitle = player.closest('.episode-card, .episode-page')
+            ?.querySelector('h1, h3')?.textContent || 'Unknown Episode';
+        
+        player.addEventListener('play', function() {
+            // Track play event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'podcast_play', {
+                    'episode_title': episodeTitle,
+                    'player_index': index
+                });
+            }
+            console.log('Podcast Play:', episodeTitle);
+        });
+        
+        player.addEventListener('ended', function() {
+            // Track completion
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'podcast_complete', {
+                    'episode_title': episodeTitle,
+                    'player_index': index
+                });
+            }
+            console.log('Podcast Complete:', episodeTitle);
+        });
+        
+        // Track 25%, 50%, 75% progress
+        let progressMarkers = [0.25, 0.5, 0.75];
+        let markersSent = [];
+        
+        player.addEventListener('timeupdate', function() {
+            const progress = player.currentTime / player.duration;
+            
+            progressMarkers.forEach(function(marker) {
+                if (progress >= marker && !markersSent.includes(marker)) {
+                    markersSent.push(marker);
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'podcast_progress', {
+                            'episode_title': episodeTitle,
+                            'progress_percent': Math.round(marker * 100)
+                        });
+                    }
+                }
+            });
+        });
+    });
+});
+</script>
