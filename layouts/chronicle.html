@@ -1,0 +1,151 @@
+---
+layout: default
+---
+<article class="chronicle-episode-page">
+    <header class="chronicle-header">
+        <div class="breadcrumb">
+            <a href="{{ '/chronicles' | relative_url }}">← Chronicle Annals</a>
+            <span class="separator">•</span>
+            <a href="{{ '/chronicles' | relative_url }}#seal-{{ page.seal }}">Seal {{ page.seal }}</a>
+        </div>
+        
+        <div class="episode-title-section">
+            <div class="seal-indicator">
+                <span class="seal-number">SEAL {{ page.seal }}</span>
+                <span class="seal-name">{{ site.chronicles.seals[page.seal | minus: 1].title }}</span>
+            </div>
+            <h1>{{ page.title }}</h1>
+            <div class="episode-metadata">
+                <span class="time-period">📅 {{ page.time_period }}</span>
+                <span class="location">📍 {{ page.location }}</span>
+                <span class="duration">⏱️ {{ page.duration }}</span>
+                {% if page.voice_count %}
+                <span class="voices">🎭 {{ page.voice_count }} Voices</span>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    
+    {% if page.audio_url %}
+    <section class="dramatization-player">
+        <div class="player-container">
+            <div class="player-artwork">
+                {% if page.artwork %}
+                <img src="{{ page.artwork }}" alt="{{ page.title }}">
+                {% else %}
+                <div class="default-artwork">🏺</div>
+                {% endif %}
+            </div>
+            
+            <div class="player-controls">
+                <audio controls preload="metadata" class="main-dramatization-player">
+                    <source src="{{ page.audio_url }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                
+                <div class="player-info">
+                    <h3>{{ page.title }}</h3>
+                    <p>{{ page.time_period }} • {{ page.location }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="listening-options">
+            <a href="{{ page.audio_url }}" download class="download-btn">⬇️ Download</a>
+            {% if page.transcript_url %}
+            <a href="{{ page.transcript_url }}" class="transcript-btn">📜 Transcript</a>
+            {% endif %}
+            <a href="{{ '/feed.xml' | relative_url }}" class="subscribe-btn">📡 Subscribe</a>
+        </div>
+    </section>
+    {% endif %}
+    
+    <section class="episode-content">
+        <div class="content-tabs">
+            <button class="tab-btn active" data-tab="overview">📖 Overview</button>
+            <button class="tab-btn" data-tab="evidence">🔍 Evidence</button>
+            <button class="tab-btn" data-tab="characters">🎭 Characters</button>
+            {% if page.transcript %}
+            <button class="tab-btn" data-tab="transcript">📜 Transcript</button>
+            {% endif %}
+        </div>
+        
+        <div class="tab-content active" id="overview">
+            {{ content }}
+            
+            {% if page.historical_context %}
+            <div class="historical-context">
+                <h3>🏛️ Historical Context</h3>
+                {{ page.historical_context | markdownify }}
+            </div>
+            {% endif %}
+        </div>
+        
+        {% if page.evidence_links %}
+        <div class="tab-content" id="evidence">
+            <h3>🔍 Supporting Evidence</h3>
+            <div class="evidence-grid">
+                {% for evidence in page.evidence_links %}
+                <div class="evidence-item">
+                    <div class="evidence-type">{{ evidence.type }}</div>
+                    <h4><a href="{{ evidence.url }}" target="_blank">{{ evidence.title }}</a></h4>
+                    <p>{{ evidence.description }}</p>
+                    {% if evidence.verification_level %}
+                    <div class="verification-badge {{ evidence.verification_level }}">
+                        {{ evidence.verification_level | capitalize }} Verification
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if page.characters %}
+        <div class="tab-content" id="characters">
+            <h3>🎭 Dramatization Characters</h3>
+            <div class="characters-list">
+                {% for character in page.characters %}
+                <div class="character-card">
+                    <div class="character-info">
+                        <h4>{{ character.name }}</h4>
+                        <p class="character-role">{{ character.role }}</p>
+                        <p class="character-description">{{ character.description }}</p>
+                        {% if character.voice_actor %}
+                        <p class="voice-actor">Voiced by: {{ character.voice_actor }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if page.transcript %}
+        <div class="tab-content" id="transcript">
+            <h3>📜 Full Dramatization Transcript</h3>
+            <div class="transcript-viewer">
+                {{ page.transcript | markdownify }}
+            </div>
+        </div>
+        {% endif %}
+    </section>
+    
+    {% if page.related_episodes %}
+    <section class="related-episodes">
+        <h3>🔗 Related Chronicle Episodes</h3>
+        <div class="related-grid">
+            {% for related_id in page.related_episodes %}
+            {% assign related = site.chronicles | where: "episode_id", related_id | first %}
+            {% if related %}
+            <div class="related-card">
+                <h4><a href="{{ related.url | relative_url }}">{{ related.title }}</a></h4>
+                <p>{{ related.time_period }} • {{ related.location }}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+    
+    <footer class

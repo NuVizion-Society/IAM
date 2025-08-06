@@ -33,3 +33,37 @@ collections:
   chronicles:
     output: true
     permalink: /chronicles/:name/
+# Chronicle Annals Configuration
+chronicles:
+  title: "Chronicle Annals of Antiquity"
+  subtitle: "Preserved Memory Streams of Ancient Civilizations"
+  description: "Immersive dramatizations reconstructing lost dialogues, rituals, and knowledge from humanity's suppressed history"
+  seals:
+    - number: 1
+      title: "Migration & Catastrophe"
+      description: "The great reset and displacement of advanced civilizations"
+    - number: 2
+      title: "Foundational Eras"
+      description: "Pre-cataclysmic unified global civilization"
+    - number: 3
+      title: "Knowledge Theft"
+      description: "Systematic erasure and appropriation of ancient wisdom"
+    - number: 4
+      title: "Obscured Pharaohs"
+      description: "Hidden rulers and suppressed dynasties"
+    - number: 5
+      title: "Cosmic Infrastructure"
+      description: "Ancient technologies and stellar alignments"
+    - number: 6
+      title: "Archival Systems"
+      description: "Methods of knowledge preservation across millennia"
+    - number: 7
+      title: "The Immortal Flesh"
+      description: "Ancient biological sovereignty and Godbody mechanics"
+
+# Dramatization Settings
+dramatization:
+  voice_actors: true
+  sound_effects: true
+  musical_scores: true
+  languages: ["ancient_sumerian", "proto_egyptian", "atlantean_dialect"]
